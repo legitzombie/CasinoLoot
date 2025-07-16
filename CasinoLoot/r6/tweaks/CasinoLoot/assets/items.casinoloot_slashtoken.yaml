@@ -1,0 +1,9 @@
+Items.CasinoLoot_SlashToken:
+  $base: Items.Preset_Katana_E3
+  quality: Quality.Legendary
+  displayName: LocKey("MysterySlashWeapon")
+  localizedDescription: LocKey("MysterySlashDescription")
+  objectActions: []
+  statModifierGroups: []
+  statModifiers: []
+  price: 15000.00

@@ -1,0 +1,10 @@
+# Mystery Throwing Weapon
+Items.CasinoLoot_ThrowToken:
+  $base: Items.Preset_Neurotoxin_Knife_Iconic
+  displayName: LocKey("MysteryThrowWeapon")
+  localizedDescription: LocKey("MysteryThrowDescription")
+  quality: Quality.Legendary
+  objectActions: []
+  statModifierGroups: []
+  statModifiers: []
+  price: 15000.00

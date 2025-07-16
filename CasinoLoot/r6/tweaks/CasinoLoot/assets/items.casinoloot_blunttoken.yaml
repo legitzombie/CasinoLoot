@@ -1,0 +1,10 @@
+# Mystery Blunt Weapon
+Items.CasinoLoot_BluntToken:
+  $base: Items.Preset_Hammer_Sasquatch
+  displayName: LocKey("MysteryBluntWeapon")
+  localizedDescription: LocKey("MysteryBluntDescription")
+  quality: Quality.Legendary
+  objectActions: []
+  statModifierGroups: []
+  statModifiers: []
+  price: 15000.00

@@ -1,0 +1,10 @@
+# Mystery Shotgun
+Items.CasinoLoot_ShotgunToken:
+  $base: Items.Preset_Carnage_Edgerunners
+  displayName: LocKey("MysteryShotgun")
+  localizedDescription: LocKey("MysteryShotgunDesc")
+  quality: Quality.Legendary
+  objectActions: []
+  statModifierGroups: []
+  statModifiers: []
+  price: 15000.00
