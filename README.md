@@ -14,7 +14,7 @@ Amounts increase as you stack up bonuses.
 
 # The rules are inspired by poker.
 
-***Kinds:*** *"katana, hammer, knife, pistol, shotgun, sniper, rifle, smg"*
+***Kinds:*** *"slash, blunt, throw, pistol, shotgun, sniper, rifle, smg"*
 
 ***Types:*** *"melee, gun"*
 
