@@ -1,14 +1,16 @@
 ### CasinoLoot - The Weapon Casino
 
-<img width="1278" height="569" alt="default" src="https://github.com/user-attachments/assets/57abcc89-4bdc-4b9c-b0bf-967442599426" />
+<img width="1219" height="537" alt="image" src="https://github.com/user-attachments/assets/e6ecd072-b3b9-47a0-bee8-65fe80a892cf" />
 
 # Click / Press F to spin 
 
-You need $10,000 to play, you're guaranteed a weapon per spin.
+You need $2,000 to play, you're guaranteed a weapon per spin.
 
-Amounts increase as you stack up bonuses.
+# Rolls are rarity based. 
 
-#
+<img width="465" height="306" alt="rarityguide" src="https://github.com/user-attachments/assets/9916bfba-f9a1-42b5-8b12-32db12b8ddec" />
+
+# Amounts increase as you stack up bonuses.
 
 <img width="465" height="306" alt="prizes" src="https://github.com/user-attachments/assets/ceb52358-f5ee-4ec2-af16-b696617d4f15" />
 
