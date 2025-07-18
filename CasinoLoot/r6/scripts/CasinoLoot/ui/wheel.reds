@@ -9,6 +9,8 @@ public class wheel {
     let canvasImage: ref<inkImage>;
     let canvasArrow: ref<inkImage>;
     let canvasIcons: array<ref<inkImage>>;
+
+    let texturePart: String;
     
     let iconColor: HDRColor;
 
@@ -22,12 +24,17 @@ public class wheel {
     let TextureParts: array<String>;
 
     let lastPrizeIndex: Int32;
+    let prizeIndex: Int32;
     let winStreak: Int32;
     let prizeHistory: array<ItemID>;
     let round: Int32;
 
     let spun: Bool;
     let free: Bool;
+    let itemPool: array<Int32>;
+    let segmentIndex: Int32;
+
+    let firstSpin: Bool;
 
     public func OnCreate(controller: ref<controller>, gamemode: ref<gamemode>) -> Void {
         this.controller = controller;
@@ -37,13 +44,17 @@ public class wheel {
         this.spun = false;
         this.free = false;
 
+        this.generatePrizeIndex();
+
         
         this.panelArrow = panelBuilder.horizontalPanel(this.controller, [3000.0, 75.0], [0.0, 75.0, 0.0, 0.0], [0.5, 0.5], 2, true, false);
         this.panel = panelBuilder.verticalPanel(this.controller, [2600.0, 1000.0], [0.0, 0.0, 0.0, 0.0], [0.5, 0.5], 3, true, true);
 
         this.player = this.controller.getPlayer();
         this.winStreak = 0;
-        this.iconColor = colors.black();
+        this.iconColor = colors.yellowGlow();
+
+        this.firstSpin = true;
 
         this.TextureParts = [
             "katana",
@@ -107,26 +118,56 @@ public class wheel {
         this.canvasImage.Reparent(this.Canvas);
     }
 
+private func ShuffledIndexes() -> array<Int32> {
+    let rewards: array<Int32>;
+    let pool: array<Int32> = [0, 1, 2, 3, 4, 5, 6, 7];
+    let count = ArraySize(pool);
+
+    let i = 0;
+    while ArraySize(pool) > 0 {
+        let index = RandRange(0, ArraySize(pool) - 1);
+        ArrayPush(rewards, pool[index]);
+        ArrayErase(pool, index);
+    };
+
+    this.controller.gamemode().setRewards(rewards);
+    this.itemPool = rewards;
+
+    return rewards;
+}
+
+
+
     private func addIcons() -> Void {
+
+    //modlog(n"DEBUG", s"Prize index: \(this.prizeIndex), prize item: \(this.TextureParts[this.prizeIndex])");
+//modlog(n"DEBUG", s"Item pool: \(this.itemPool)");
+//modlog(n"DEBUG", s"Segment index on wheel: \(this.segmentIndex)");
+//modlog(n"DEBUG", s"Item at segment index: \(this.TextureParts[this.itemPool[this.segmentIndex]])");
+
+
         this.Canvas.RemoveAllChildren();
         this.addCanvasImage();
         let numSegments = 8;
         let radius = 320.0;
         let angleStep = 360.0 / Cast<Float>(numSegments);
 
+        //if !this.firstSpin { this.generatePrizeIndex(); }
+
         let i = 0;
         while i < numSegments {
-
-            let z = 0;
-            while z < 2 {
+            ////modlog(n"DEBUG", s"Shuffled: \(this.itemPool[i]) = \(this.TextureParts[this.itemPool[i]])");
+            this.texturePart = this.TextureParts[this.itemPool[i]];
+ 
                 let angleRad = Deg2Rad(angleStep * Cast<Float>(i));
+                
                 let x = radius * CosF(angleRad);
                 let y = radius * SinF(angleRad);
 
                 let icon: ref<inkImage> = new inkImage();
                 icon.SetName(StringToName("SegmentIcon" + ToString(i)));
                 icon.SetAtlasResource(ResRef.FromString("base\\gameplay\\gui\\common\\icons\\weapon_types.inkatlas"));
-                icon.SetTexturePart(StringToName(this.TextureParts[i]));
+                icon.SetTexturePart(StringToName(this.texturePart));
                 icon.SetSize(250.0, 75.0);
                 icon.SetAnchor(inkEAnchor.Centered);
                 icon.SetAnchorPoint(new Vector2(0.5, 0.5));
@@ -136,21 +177,25 @@ public class wheel {
                 icon.SetFitToContent(false);
                 icon.SetRotation(45.0 * Cast<Float>(i));
                 icon.SetScale(new Vector2(0.9,0.9));
-                if i == this.lastPrizeIndex && z == 1 && !this.spun {
-                    icon.SetTintColor(this.iconColor);
-                }else if z == 1 {
+
+                if this.segmentIndex == i && !this.firstSpin && !this.spun {  
+                    icon.SetTintColor(colors.yellowGlow());
+                }
+                else if i % 2 == 0 {
                     icon.SetTintColor(colors.black());
                 }else {
                     icon.SetTintColor(colors.white());
                 }
+                 
                 icon.Reparent(this.Canvas);
                 ArrayPush(this.canvasIcons, icon);  
-                z += 1;
-            }
+    
 
             i += 1;
         }
     }
+
+    
 
     public func freeSpin(isfree: Bool) -> Void {
 		this.free = isfree;
@@ -162,6 +207,14 @@ public class wheel {
 
     public func setIconColor(color: HDRColor) -> Void {
         this.iconColor = color;
+    }
+
+    public func getLastPrizeKind() -> String {
+        return this.TextureParts[this.lastPrizeIndex];
+    }
+
+    public func getLastPrizeRarity() -> Int32 {
+        return this.segmentIndex;
     }
 
     private func addArrow() -> Void {
@@ -188,17 +241,50 @@ public class wheel {
         this.spinButton.RegisterToCallback(n"OnBtnClick", this, n"OnSpinClicked");
     }
 
-    private func spinWheel() -> Void {
+    public func generatePrizeIndex() -> Int32 {
+        this.ShuffledIndexes();
         let roll: Float = RandF(); 
+        this.prizeIndex = FloorF(roll * 8.0);
+        this.lastPrizeIndex = this.prizeIndex;
+        ////modlog(n"DEBUG", s"Current prize: \(this.prizeIndex)");
+        ////modlog(n"DEBUG", s"REWARD INDEX: \(this.FindIndex(this.itemPool, this.prizeIndex))");
+    }
 
-        let prizeIndex: Int32 = FloorF(roll * 8.0);
-        this.lastPrizeIndex = prizeIndex;
-        let degreesPerPrize: Float = 360.0 / 8.0;
-        
-        let targetAngle: Float = 270.0; 
-        let prizeAngle: Float = Cast<Float>(prizeIndex) * degreesPerPrize;
+    func FindIndex(arr: array<Int32>, value: Int32) -> Int32 {
+        let i = 0;
+        while i < ArraySize(arr) {
+            if arr[i] == value {
+                return i;
+            };
+            i += 1;
+        };
+        return -1; // Not found
+    }
 
-        let totalSpin: Float = (360.0 * 4.0) + (targetAngle - prizeAngle);
+    public func getSegmentIndex() -> Int32 {
+        return this.segmentIndex;
+    }
+
+    private func spinWheel() -> Void {
+
+        let numSegments: Int32 = 8;
+        let degreesPerPrize: Float = 360.0 / 8.0; // 45° per segment
+        let visualTopAngle: Float = 270.0;        // Top of the wheel
+
+        // Find where in the wheel layout your reward is
+        this.segmentIndex = this.FindIndex(this.itemPool, this.prizeIndex);
+
+        ////modlog(n"DEBUG", s"Segment Index on Wheel: \(this.segmentIndex)");
+
+        // That segment is located at this angle
+        let prizeAngle: Float = Cast<Float>(this.segmentIndex) * degreesPerPrize;
+
+        ////modlog(n"DEBUG", s"PrizeAngle: \(prizeAngle)");
+
+        // Calculate total spin: full rotations + spin to align prize to top
+        let totalSpin: Float = (360.0 * 4.0) + ((visualTopAngle - prizeAngle + 360.0) % 360.0);
+
+
 
         let anim: ref<inkAnimRotation> = new inkAnimRotation();
         anim.SetStartRotation(0.0);
@@ -217,17 +303,20 @@ public class wheel {
 
     private func Pay() -> Void {
         if !this.free {
-            this.controller.money().Remove(10000);
+            this.controller.money().Remove(2000);
         }
     }
 
     private cb func OnSpinClicked(evt: ref<inkCustomEvent>) -> Bool {
-        //ModLog(n"DEBUG", s"Spin Clicked");
+        ////modlog(n"DEBUG", s"Spin Clicked");
         if !this.controller.money().isBrokeboi() && !this.free {
+            ////modlog(n"DEBUG", s"Spin Clicked 2");
             this.Pay();
+            if !this.firstSpin { this.generatePrizeIndex(); }
             this.spinWheel();
             return true;
         } else if this.free {
+            if !this.firstSpin { this.generatePrizeIndex(); }
             this.spinWheel();
             return true; 
         }
@@ -235,10 +324,18 @@ public class wheel {
     }
 
     private cb func OnSpinStarted(animProxy: ref<inkAnimProxy>) {
-        //ModLog(n"DEBUG", s"Spin Started");
+        //modlog(n"DEBUG", s"Prize index: \(this.prizeIndex), prize item: \(this.TextureParts[this.prizeIndex])");
+//modlog(n"DEBUG", s"Item pool: \(this.itemPool)");
+//modlog(n"DEBUG", s"Segment index on wheel: \(this.segmentIndex)");
+//modlog(n"DEBUG", s"Item at segment index: \(this.TextureParts[this.itemPool[this.segmentIndex]])");
+
+        ////modlog(n"DEBUG", s"Spin Started");
         this.spun = true;
         this.freeSpin(false);
-        this.addIcons();
+        if !this.firstSpin { 
+            this.addIcons(); 
+        }
+    
         this.spinButton.ApplyDisabled();
         this.controller.sound().Play("dev_vm_processing_leelou_beans");
 
@@ -250,16 +347,16 @@ public class wheel {
 
 
     private cb func OnSpinFinished(proxy: ref<inkAnimProxy>) -> Bool {
-        //ModLog(n"DEBUG", s"Spin Finished");
-        if this.controller.gamemode().isGameOver() {
-            this.controller.gamemode().Reset();
-        }
+        ////modlog(n"DEBUG", s"Spin Finished");
+        this.firstSpin = false;
+
         this.spun = false;
         this.spinButton.ApplyDisabled();
         this.spinButton.resetText();
 
         this.controller.gamemode().colorJackpot(-1);
         this.controller.gamemode().Play(this.lastPrizeIndex);
+        this.addIcons();
 
         this.controller.money().isBrokeboi();
 

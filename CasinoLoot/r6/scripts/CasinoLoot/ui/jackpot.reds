@@ -12,7 +12,7 @@ public func OnCreate(controller: ref<controller>) -> Void {
 }
 
 public func Display(colorOverrideIndex: Int32, overrideColor: HDRColor) -> Void {
-    //ModLog(n"DEBUG", s"Display Jackpot");
+    ////modlog(n"DEBUG", s"Display Jackpot");
     this.panel.RemoveAllChildren();
 
     let templateText = this.GetTemplateText();
@@ -77,10 +77,10 @@ public func Display(colorOverrideIndex: Int32, overrideColor: HDRColor) -> Void 
             currentImage.Display(this.panel, "base\\gameplay\\gui\\common\\icons\\mappin_icons.inkatlas", "lootIconic", [75.0, 75.0], templateImageColor[imgIndex], position, 270.0, true, true, false);
             imgIndex += 1;
         } else {
-            //ModLog(n"DEBUG", s"Text / Index: \(text)/\(i)");
+            ////modlog(n"DEBUG", s"Text / Index: \(text)/\(i)");
             if colorOverrideIndex > 0 && colorOverrideIndex == i {
-               //ModLog(n"DEBUG", s"Changed color of: \(text)");
-                //ModLog(n"DEBUG", s"prize: \(prize)");
+               ////modlog(n"DEBUG", s"Changed color of: \(text)");
+                ////modlog(n"DEBUG", s"prize: \(prize)");
                 if prize < 6 {
                     color = colors.getGradient(prize);
                 }else {

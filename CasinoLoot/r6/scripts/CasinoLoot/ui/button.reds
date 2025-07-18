@@ -108,7 +108,7 @@ public class spinButton extends CustomButton {
 		label.SetVerticalAlignment(textVerticalAlignment.Center);
 		label.SetContentHAlign(inkEHorizontalAlign.Center);
 		label.SetContentVAlign(inkEVerticalAlign.Center);
-		label.SetText("        SPIN ($10,000)");
+		label.SetText("         SPIN ($2,000)");
 		label.SetMargin(new inkMargin(0.0, 0.0, 0.0, 0.0));
 		label.SetHAlign(inkEHorizontalAlign.Left);
 		label.SetVAlign(inkEVerticalAlign.Center);
@@ -215,11 +215,12 @@ public class spinButton extends CustomButton {
 			this.SetText("            FREE SPIN");
 			this.setBackgroundColor(colors.greenGlow());
 		}else if !this.controller.money().isBrokeboi() {
-			this.SetText("        SPIN ($10,000)");
+			this.SetText("         SPIN ($2,000)");
 			this.setBackgroundColor(colors.yellowGlow());
+			this.m_isDisabled = false;
 		}else {
 			this.setBackgroundColor(colors.redGlow());
-			this.SetText("     $10,000 REQUIRED");
+			this.SetText("      $2,000 REQUIRED");
 		}
 	}
 

@@ -10,7 +10,7 @@ public class animationTimer extends DelayCallback {
     }
 
     public func Call() -> Void {
-        //ModLog(n"DEBUG", s"timer start");
+        ////modlog(n"DEBUG", s"timer start");
         this.controller.getSharedButton(0).SetText(s"                   \(4 - this.count)...");
 
         if this.count < 4 {
@@ -18,7 +18,7 @@ public class animationTimer extends DelayCallback {
         }else {
             this.controller.getSharedButton(0).resetText();
             this.controller.wheel().setIconColor(colors.yellowGlow());
-            this.controller.wheel().addIcons();
+            //this.controller.wheel().addIcons();
         }
 
         this.count += 1;

@@ -15,7 +15,7 @@ public class money {
 
     public func isBrokeboi() -> Bool {
 
-        if this.Get() < 10000 {
+        if this.Get() < 2000 {
             // If you're a broke boi just say so! *PokiKiss*
             this.controller.getSharedButton(0).resetText();
             this.controller.sound().Play("q305_bunker_ui_denied_nonspatial");

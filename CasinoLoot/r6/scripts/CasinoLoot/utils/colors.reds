@@ -104,12 +104,12 @@ public class colors {
         let i = 0;
 
         if length == 0 {
-            //ModLog(n"DEBUG", s"DefaultColor: \(patterns[0])");
+            //////modlog(n"DEBUG", s"DefaultColor: \(patterns[0])");
             ArrayPush(Colors, colors[patterns[0]]);
         }
 
         while i <= length {  
-            //ModLog(n"DEBUG", s"Color: \(patterns[i])");
+            //////modlog(n"DEBUG", s"Color: \(patterns[i])");
             ArrayPush(Colors, colors[patterns[i]]);
             i += 1;
         };

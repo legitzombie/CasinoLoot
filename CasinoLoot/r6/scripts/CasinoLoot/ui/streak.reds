@@ -72,9 +72,9 @@ public class streak {
         imageData.part = part[i];
         imageData.color = color[i];
 
-        //ModLog(n"DEBUG", s"src2: \(imageData.resource)");
-        //ModLog(n"DEBUG", s"part2: \(imageData.part)");
-        //ModLog(n"DEBUG", s"color2: \(imageData.color)");
+        ////modlog(n"DEBUG", s"src2: \(imageData.resource)");
+        ////modlog(n"DEBUG", s"part2: \(imageData.part)");
+        ////modlog(n"DEBUG", s"color2: \(imageData.color)");
 
 
         if i != 0 {
