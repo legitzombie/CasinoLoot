@@ -4,7 +4,7 @@
 
 # Click / Press F to spin 
 
-You need $2,000 to play, you're guaranteed a weapon per spin.
+You need $5,000 to play, you're guaranteed a weapon per spin.
 
 # Rolls are rarity based. 
 
