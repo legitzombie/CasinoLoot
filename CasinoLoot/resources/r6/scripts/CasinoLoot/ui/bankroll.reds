@@ -70,7 +70,7 @@ public func Display() -> Void {
         this.setMargin([-600.0, -150.0, 0.0, 0.0]);
     } else if currentMoney >= 150000 {
         this.setImage(this.ImagesData[2].part);
-        this.setMargin([-500.0, -275.0, 0.0, 0.0]);
+        this.setMargin([-600.0, -275.0, 0.0, 0.0]);
     }else {
         this.Reset();
     }

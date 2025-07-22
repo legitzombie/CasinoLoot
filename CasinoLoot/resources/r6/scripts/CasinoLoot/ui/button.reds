@@ -202,6 +202,10 @@ public class spinButton extends CustomButton {
 		this.m_hoverFillAnimDef.AddInterpolator(hoverFillAlphaAnim);
 	}
 
+	public func disabled() -> Bool {
+		return this.m_isDisabled;
+	}
+
 	public func ApplyDisabled() -> Void {
 		this.m_isDisabled = !this.m_isDisabled;
 		let color: HDRColor;

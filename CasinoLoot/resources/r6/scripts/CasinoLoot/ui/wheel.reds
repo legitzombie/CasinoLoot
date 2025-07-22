@@ -36,10 +36,16 @@ public class wheel {
 
     let firstSpin: Bool;
 
+    let autoButton: ref<checkbox>;
+    let auto: Bool;
+
     public func OnCreate(controller: ref<controller>, gamemode: ref<gamemode>) -> Void {
         this.controller = controller;
         let panelBuilder = new panelBuilder();
         panelBuilder.OnCreate();
+
+        
+        this.auto = false;
 
         this.spun = false;
         this.free = false;
@@ -47,7 +53,7 @@ public class wheel {
         this.generatePrizeIndex();
 
         
-        this.panelArrow = panelBuilder.horizontalPanel(this.controller, [3000.0, 75.0], [0.0, 75.0, 0.0, 0.0], [0.5, 0.5], 2, true, false);
+        this.panelArrow = panelBuilder.horizontalPanel(this.controller, [3000.0, 75.0], [0.0, 90.0, 0.0, 0.0], [0.5, 0.5], 2, true, false);
         this.panel = panelBuilder.verticalPanel(this.controller, [2600.0, 1000.0], [0.0, 0.0, 0.0, 0.0], [0.5, 0.5], 3, true, true);
 
         this.player = this.controller.getPlayer();
@@ -80,6 +86,7 @@ public class wheel {
         this.addIcons();
         this.addArrow();
         this.addSpinButton();
+        this.addAutoButton();
     }
 
     private func createCanvas() -> Void {
@@ -245,6 +252,11 @@ private func ShuffledIndexes() -> array<Int32> {
         this.spinButton.RegisterToCallback(n"OnBtnClick", this, n"OnSpinClicked");
     }
 
+    private func addAutoButton() -> Void {
+        this.autoButton = checkbox.Create(this.controller, this.panel);
+        this.autoButton.RegisterToCallback(n"OnBtnClick", this, n"OnAutoClicked");
+    }
+
     public func generatePrizeIndex() -> Int32 {
         this.ShuffledIndexes();
         let roll: Float = RandF(); 
@@ -309,18 +321,30 @@ private func ShuffledIndexes() -> array<Int32> {
         this.controller.money().Remove(this.getCost());
     }
 
+    private cb func OnAutoClicked(evt: ref<inkCustomEvent>) -> Bool {
+        this.auto = !this.auto;
+        ModLog(n"DEBUG", s"Auto: \(this.auto)");
+        if this.auto {
+            this.autoButton.attachImage(n"on");
+            return true;
+        }else {
+            this.autoButton.attachImage(n"off");
+        }
+        return false;
+    }
+
     private cb func OnSpinClicked(evt: ref<inkCustomEvent>) -> Bool {
         ////modlog(n"DEBUG", s"Spin Clicked");
-        if !this.controller.money().isBrokeboi()  {
+        if !this.controller.money().isBrokeboi() && !this.spinButton.disabled()  {
             ////modlog(n"DEBUG", s"Spin Clicked 2");
             this.Pay();
             if !this.firstSpin { this.generatePrizeIndex(); }
             this.spinWheel();
             return true;
-        } else {
+        } else if !this.controller.money().isBrokeboi() && this.spinButton.disabled() {
             this.spinButton.ApplyDisabled();
-            this.spinButton.resetText();
-        }
+        } 
+        this.spinButton.resetText();
         return false;
     }
 
@@ -360,7 +384,12 @@ private func ShuffledIndexes() -> array<Int32> {
         this.controller.gamemode().colorJackpot(-1);
         this.controller.gamemode().Play(this.lastPrizeIndex);
         this.addIcons();
-        this.controller.money().isBrokeboi();
+
+        if this.auto && !this.controller.money().isBrokeboi() {
+            this.Pay();
+            if !this.firstSpin { this.generatePrizeIndex(); }
+            this.spinWheel();
+        }
 
         return true;
     }

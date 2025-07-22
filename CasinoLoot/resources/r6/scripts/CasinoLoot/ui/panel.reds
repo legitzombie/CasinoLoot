@@ -3,7 +3,7 @@ public class panelBuilder {
     let anchors: array<inkEAnchor>;
 
     public func OnCreate() -> Void {
-        this.anchors = [inkEAnchor.LeftFillVerticaly, inkEAnchor.RightFillVerticaly, inkEAnchor.TopCenter, inkEAnchor.Centered];
+        this.anchors = [inkEAnchor.LeftFillVerticaly, inkEAnchor.RightFillVerticaly, inkEAnchor.TopCenter, inkEAnchor.Centered, inkEAnchor.BottomCenter];
     }
 
     public func verticalPanel(
