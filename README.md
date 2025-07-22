@@ -1,6 +1,6 @@
 ### CasinoLoot - The Weapon Casino
 
-<img width="1219" height="537" alt="image" src="https://github.com/user-attachments/assets/e6ecd072-b3b9-47a0-bee8-65fe80a892cf" />
+<img width="1277" height="564" alt="main" src="https://github.com/user-attachments/assets/ced04744-a05f-4205-a159-d0617638a1be" />
 
 # Click / Press F to spin 
 
