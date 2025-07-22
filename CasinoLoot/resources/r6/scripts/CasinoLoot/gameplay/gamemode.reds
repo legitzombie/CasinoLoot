@@ -46,6 +46,9 @@ public class gamemode {
     let Colors: array<HDRColor>;
     let theme: array<HDRColor>;
 
+    let meleeKeys: array<String>;
+    let gunKeys: array<String>;
+
     let gameover: Bool;
 
         let LEGENDARY: Int32;
@@ -99,6 +102,20 @@ public class gamemode {
             "Slash",
             "Blunt",
             "Throw",
+            "Pistol",
+            "Shotgun",
+            "Sniper",
+            "Rifle",
+            "SMG"
+        ];
+
+        this.meleeKeys = [
+            "Slash",
+            "Blunt",
+            "Throw"
+        ];
+
+        this.gunKeys = [
             "Pistol",
             "Shotgun",
             "Sniper",
@@ -237,7 +254,7 @@ public class gamemode {
         this.streakInterface.Display(this.Resources, this.Parts, this.Colors);
         this.bankroll.Display();
 
-        //modlog(n"DEBUG", s"Reward: \(this.items[this.round]) = \(itemIndex)");
+        //ModLog(n"DEBUG", s"Reward: \(this.items[this.round]) = \(itemIndex)");
 
         this.giveReward(this.items[this.round]);
            
@@ -255,7 +272,7 @@ public class gamemode {
     }
 
     private func assignScore() -> Void {
-        //modlog(n"DEBUG", s"Round: \(this.round)");
+        //ModLog(n"DEBUG", s"Round: \(this.round)");
 
         if this.round > 0 && ArraySize(this.items) > 0 {
             if this.sameWeaponCategory() {
@@ -289,7 +306,7 @@ public class gamemode {
         if this.gameover && index != -1 {
             return;
         }
-        ////modlog(n"DEBUG", s"Coloring label: \(index)");
+        //ModLog(n"DEBUG", s"Coloring label: \(index)");
         this.controller.jackpot().Display(index, colors.green());
     }
 
@@ -297,7 +314,7 @@ public class gamemode {
     
         
 
-            ////modlog(n"DEBUG", s"Prize: \(this.prize)");
+            //ModLog(n"DEBUG", s"Prize: \(this.prize)");
 
             if this.prize == 50 {
                 this.prizeJingle = 0;
@@ -322,8 +339,8 @@ public class gamemode {
 
             this.playJingle();
 
-            ////modlog(n"DEBUG", s"Prize 3: \(item)");
-            ////modlog(n"DEBUG", s"Rarity Index: \(this.controller.wheel().getLastPrizeRarity())");
+            ////ModLog(n"DEBUG", s"Prize 3: \(item)");
+            ////ModLog(n"DEBUG", s"Rarity Index: \(this.controller.wheel().getLastPrizeRarity())");
 
             let rarity = "_COMMON";
             
@@ -337,7 +354,7 @@ public class gamemode {
                 rarity = "LEGENDARY";
             }
 
-            ////modlog(n"DEBUG", s"Rarity: \(rarity)");
+            ////ModLog(n"DEBUG", s"Rarity: \(rarity)");
 
             let keys = ArraySize(this.itemKeys);
             let key = 0;
@@ -345,7 +362,7 @@ public class gamemode {
                 let token = this.itemKeys[key];
                 let tokenString = TDBID.ToStringDEBUG(token);
                 if StrContains(tokenString, rarity) && StrContains(tokenString, item) {
-                    ////modlog(n"DEBUG", s"Token: \(tokenString)");
+                    ////ModLog(n"DEBUG", s"Token: \(tokenString)");
                     let i: Int32 = 0;
                     while i < this.prize {
                         GameInstance.GetTransactionSystem(this.controller.getPlayer().GetGame()).GiveItem(this.controller.getPlayer(), ItemID.CreateQuery(token), 1);
@@ -361,9 +378,9 @@ public class gamemode {
                         let i = 0;
                 while i < ArraySize(this.items) {
                     let item = this.items[i];
-                    ////modlog(n"DEBUG", s"Item: \(item)");
-                    ////modlog(n"DEBUG", s"Last Prize Kind: \(item)");
-                    ////modlog(n"DEBUG", s"Rarity: \(item)");
+                    ////ModLog(n"DEBUG", s"Item: \(item)");
+                    ////ModLog(n"DEBUG", s"Last Prize Kind: \(item)");
+                    ////ModLog(n"DEBUG", s"Rarity: \(item)");
                     if StrContains(item, this.controller.wheel().getLastPrizeKind()) && StrContains(item, rarity) {
                         this.item = item;
                     }
@@ -371,7 +388,7 @@ public class gamemode {
     }
 
     private func Reset() -> Void {    
-            ////modlog(n"DEBUG", "Reset");
+            ////ModLog(n"DEBUG", "Reset");
             this.Resources = [];
             this.Parts = [];
             this.Colors = [];
@@ -394,21 +411,21 @@ public func allDifferentWeapons() -> Bool {
     let size = ArraySize(this.items);
 
     if size < 2 {
-        ////modlog(n"DEBUG", s"all different failed, under 3 weapons found");
+        ////ModLog(n"DEBUG", s"all different failed, under 3 weapons found");
         return false;
     };
 
-    ////modlog(n"DEBUG", s"2+ weapons found, checking if all different.");
+    ////ModLog(n"DEBUG", s"2+ weapons found, checking if all different.");
 
     while i < size {
 
         let item = this.items[i];
         if ArrayContains(weapons, item) {
-            ////modlog(n"DEBUG", s"List contains already \(item)");
+            ////ModLog(n"DEBUG", s"List contains already \(item)");
             return false;
         }
 
-        ////modlog(n"DEBUG", s"Added to list weapon #\(i): \(item)");
+        ////ModLog(n"DEBUG", s"Added to list weapon #\(i): \(item)");
         ArrayPush(weapons, item);
         i += 1;
     };
@@ -421,7 +438,7 @@ public func sameWeaponKind() -> Bool {
     let size = ArraySize(this.items);
 
     if size < 2 {
-        ////modlog(n"DEBUG", "Not enough weapons to compare kind.");
+        ////ModLog(n"DEBUG", "Not enough weapons to compare kind.");
         return false;
     }
 
@@ -430,13 +447,13 @@ public func sameWeaponKind() -> Bool {
 
     while i < size {
         if !StrContains(this.items[i], first) {
-            ////modlog(n"DEBUG", "Mismatch found: " + this.items[i]);
+            ////ModLog(n"DEBUG", "Mismatch found: " + this.items[i]);
             return false;
         }
         i += 1;
     }
 
-    ////modlog(n"DEBUG", "All weapons match: " + first);
+    ////ModLog(n"DEBUG", "All weapons match: " + first);
     return true;
 }
 
@@ -453,7 +470,7 @@ public func samePairs() -> Bool {
         return false;
     };
 
-    ////modlog(n"DEBUG", s"4 weapons found, checking if two pairs.");
+    ////ModLog(n"DEBUG", s"4 weapons found, checking if two pairs.");
 
     let i = 0;
     while i < size {
@@ -461,22 +478,22 @@ public func samePairs() -> Bool {
         let item = this.items[i];
 
         if ArrayContains(this.meleeParts, item) {
-            ////modlog(n"DEBUG", s"melee: \(item)");
+            ////ModLog(n"DEBUG", s"melee: \(item)");
             meleeCount += 1;
             ArrayPush(x, item);
         } else if ArrayContains(this.gunParts, item) {
-            ////modlog(n"DEBUG", s"gun: \(item)");
+            ////ModLog(n"DEBUG", s"gun: \(item)");
             gunCount += 1;
             ArrayPush(y, item);
         }else {
-            ////modlog(n"DEBUG", s"Not melee or a gun: \(item)");
+            ////ModLog(n"DEBUG", s"Not melee or a gun: \(item)");
         };
 
         i += 1;
     };
 
     if meleeCount == 2 && gunCount == 2 {
-        ////modlog(n"DEBUG", s"Final check");
+        ////ModLog(n"DEBUG", s"Final check");
         if !StrContains(x[0], x[1]) {
             return false;
         }else if !StrContains(y[0], y[1]) {
@@ -484,8 +501,8 @@ public func samePairs() -> Bool {
         };
         return true;
     }else {
-        ////modlog(n"DEBUG", s"melee: \(ArraySize(x))");
-        ////modlog(n"DEBUG", s"guns: \(ArraySize(y))");
+        ////ModLog(n"DEBUG", s"melee: \(ArraySize(x))");
+        ////ModLog(n"DEBUG", s"guns: \(ArraySize(y))");
     };
 
     return false;
@@ -496,17 +513,17 @@ public func sameWeaponCategory() -> Bool {
     let size = ArraySize(this.items);
 
     if size < 2 {
-        ////modlog(n"DEBUG", s"Same category failed, under 2 weapons found");
+        //ModLog(n"DEBUG", s"Same category failed, under 2 weapons found");
         return false;
     }
 
    
-    ////modlog(n"DEBUG", s"Melee category");
-    let allMelee = this.sameCategory(this.meleeParts);
-    ////modlog(n"DEBUG", s"all melee: \(allMelee)");
-    ////modlog(n"DEBUG", s"Gun category");
-    let allGuns = this.sameCategory(this.gunParts);
-    ////modlog(n"DEBUG", s"all gun: \(allGuns)");
+    //ModLog(n"DEBUG", s"Melee category");
+    let allMelee = this.sameCategory(this.meleeKeys);
+    //ModLog(n"DEBUG", s"all melee: \(allMelee)");
+    //ModLog(n"DEBUG", s"Gun category");
+    let allGuns = this.sameCategory(this.gunKeys);
+    //ModLog(n"DEBUG", s"all gun: \(allGuns)");
 
 
     if allMelee {
@@ -525,30 +542,30 @@ public func sameCategory(keys: array<String>) -> Bool {
     let size = ArraySize(this.items);
 
     if size < 2 {
-        ////modlog(n"DEBUG", s"Same category failed, under 2 weapons found");
+        //ModLog(n"DEBUG", s"Same category failed, under 2 weapons found");
         return false;
     }
 
-     ////modlog(n"DEBUG", s"2+ weapons found, checking if all same category.");
+     //ModLog(n"DEBUG", s"2+ weapons found, checking if all same category.");
 
     while i < size {
         let item = this.items[i];
 
         if ArrayContains(weapons, item) {
-            ////modlog(n"DEBUG", s"List contains already \(item)");
+            //ModLog(n"DEBUG", s"List contains already \(item)");
             return false;
         }else if !ArrayContains(keys, item) {
-            ////modlog(n"DEBUG", s"List doesn't contains \(item)");
+            //ModLog(n"DEBUG", s"List doesn't contains \(item)");
             return false;
         }
 
-        ////modlog(n"DEBUG", s"Added to list weapon #\(i): \(item)");
+        //ModLog(n"DEBUG", s"Added to list weapon #\(i): \(item)");
         ArrayPush(weapons, item);
         i += 1;
     }
 
     if size != ArraySize(weapons) {
-        ////modlog(n"DEBUG", s"The weapons owned(\(size)) and weapon list(\(ArraySize(weapons))) don't match");
+        //ModLog(n"DEBUG", s"The weapons owned(\(size)) and weapon list(\(ArraySize(weapons))) don't match");
         return false;
     }
 

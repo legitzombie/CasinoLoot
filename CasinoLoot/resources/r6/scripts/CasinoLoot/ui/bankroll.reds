@@ -61,14 +61,15 @@ public class bankroll {
 public func Display() -> Void {
     let currentMoney = this.controller.money().Get();
     ////modlog(n"DEBUG", s"money: \(currentMoney)");
+    let cost = 5000;
 
-    if currentMoney >= 5000 && currentMoney < 50000 {
+    if currentMoney >= cost && currentMoney < (cost*5) {
         this.setImage(this.ImagesData[0].part);
         this.setMargin([-600.0, -150.0, 0.0, 0.0]);
-    } else if currentMoney >= 50000 && currentMoney < 150000 {
+    } else if currentMoney >= (cost*5) && currentMoney < (cost*25) {
         this.setImage(this.ImagesData[1].part);
         this.setMargin([-600.0, -150.0, 0.0, 0.0]);
-    } else if currentMoney >= 150000 {
+    } else if currentMoney >= (cost*25) {
         this.setImage(this.ImagesData[2].part);
         this.setMargin([-600.0, -275.0, 0.0, 0.0]);
     }else {

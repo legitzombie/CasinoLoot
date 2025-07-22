@@ -208,6 +208,7 @@ public class spinButton extends CustomButton {
 
 	public func ApplyDisabled() -> Void {
 		this.m_isDisabled = !this.m_isDisabled;
+		ModLog(n"DEBUG", s"Disabled: \(this.m_isDisabled)");
 		let color: HDRColor;
 
 		if this.m_isDisabled {

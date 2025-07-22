@@ -323,7 +323,7 @@ private func ShuffledIndexes() -> array<Int32> {
 
     private cb func OnAutoClicked(evt: ref<inkCustomEvent>) -> Bool {
         this.auto = !this.auto;
-        ModLog(n"DEBUG", s"Auto: \(this.auto)");
+        //ModLog(n"DEBUG", s"Auto: \(this.auto)");
         if this.auto {
             this.autoButton.attachImage(n"on");
             return true;
@@ -335,16 +335,15 @@ private func ShuffledIndexes() -> array<Int32> {
 
     private cb func OnSpinClicked(evt: ref<inkCustomEvent>) -> Bool {
         ////modlog(n"DEBUG", s"Spin Clicked");
-        if !this.controller.money().isBrokeboi() && !this.spinButton.disabled()  {
+        if !this.controller.money().isBrokeboi() && !this.spun  {
             ////modlog(n"DEBUG", s"Spin Clicked 2");
+            this.spinButton.ApplyDisabled();
+            this.spun = true;
             this.Pay();
             if !this.firstSpin { this.generatePrizeIndex(); }
             this.spinWheel();
             return true;
-        } else if !this.controller.money().isBrokeboi() && this.spinButton.disabled() {
-            this.spinButton.ApplyDisabled();
         } 
-        this.spinButton.resetText();
         return false;
     }
 
@@ -355,14 +354,12 @@ private func ShuffledIndexes() -> array<Int32> {
 //modlog(n"DEBUG", s"Item at segment index: \(this.TextureParts[this.itemPool[this.segmentIndex]])");
 
         ////modlog(n"DEBUG", s"Spin Started");
-        this.spun = true;
         this.controller.gamemode().bankroll().Display();
         
         if !this.firstSpin { 
             this.addIcons(); 
         }
     
-        this.spinButton.ApplyDisabled();
         this.controller.sound().Play("dev_vm_processing_leelou_beans");
 
         let timer = new animationTimer();

@@ -23,7 +23,7 @@ public class checkbox extends CustomButton {
         this.canvas.SetHAlign(inkEHorizontalAlign.Center);
         this.canvas.SetVAlign(inkEVerticalAlign.Center);
         this.canvas.SetMargin(new inkMargin(0.0, -93.0, 0.0, 0.0));
-        this.canvas.SetInteractive(true);
+        this.canvas.SetInteractive(false);
         this.canvas.Reparent(this.panel);
     }
 
