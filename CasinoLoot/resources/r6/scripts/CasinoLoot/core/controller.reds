@@ -14,7 +14,9 @@ public class controller {
     let jackpot: ref<jackpot>;
     let sound: ref<sound>;
 
-    public func onCreate(root: ref<inkCompoundWidget>, player: ref<GameObject>) -> Void {
+    let page: ref<BrowserController>;
+
+    public func onCreate(root: ref<inkCompoundWidget>, player: ref<GameObject>, page: ref<BrowserController>) -> Void {
         this.root = root;
         this.Clear();
 
@@ -34,6 +36,7 @@ public class controller {
         this.sound.OnCreate(this);
 
         this.player = player;
+        this.page = page;
     }
 
     public func addVerticalPanel(panel: ref<inkVerticalPanel>) -> Void {
@@ -66,6 +69,10 @@ public class controller {
 
     public func sound() -> ref<sound> {
         return this.sound;
+    }
+
+    public func page() -> ref<BrowserController> {
+        return this.page;
     }
 
     public func getSharedPanel(i: Int32, vertical: Bool) -> ref<inkCompoundWidget> {

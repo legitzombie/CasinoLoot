@@ -86,28 +86,32 @@ private func setIcon(widgetData: SComputerMenuButtonWidgetPackage) -> Void {
 protected cb func OnPageSpawned(widget: ref<inkWidget>, userData: ref<IScriptable>) -> Bool {
   wrappedMethod(widget, userData);
 
+  let controller = this.m_currentPage.GetController();
+  let currentController = controller as WebPage;
+
   if this.showSite {
-    let controller = this.m_currentPage.GetController();
-    let currentController = controller as WebPage;
 
-let root: ref<inkCompoundWidget> = this.GetRootCompoundWidget();
-      let prevCanvas: ref<inkWidget> = root.GetWidget(n"RootCanv");
-  if IsDefined(prevCanvas) {
-    root.RemoveChild(prevCanvas);
-  };
+    let root: ref<inkCompoundWidget> = this.GetRootCompoundWidget();
+          let prevCanvas: ref<inkWidget> = root.GetWidget(n"RootCanv");
+      if IsDefined(prevCanvas) {
+        root.RemoveChild(prevCanvas);
+      }
 
-    if IsDefined(currentController) {
-      inkTextRef.SetText(this.m_addressText, "NETdir://casino.loot");
-      currentController.PopulateView(this.m_gameController.GetPlayerControlledObject());
-    };
-  };
+      if IsDefined(currentController) {
+        inkTextRef.SetText(this.m_addressText, "NETdir://casino.loot");
+        currentController.PopulateView(this.m_gameController.GetPlayerControlledObject(), this);
+      }
+  }
 }
 
-@addMethod(WebPage)
-public func PopulateView(player: ref<GameObject>) -> Void {
+@addField(WebPage)
+private let controller: ref<controller>;
 
-  let controller = new controller();
-  controller.onCreate(this.GetRootCompoundWidget(), player);
+@addMethod(WebPage)
+public func PopulateView(player: ref<GameObject>, page: ref<BrowserController>) -> Void {
+
+  this.controller = new controller();
+  this.controller.onCreate(this.GetRootCompoundWidget(), player, page);
 
 }
 

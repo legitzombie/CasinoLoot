@@ -38,6 +38,7 @@ public class wheel {
 
     let autoButton: ref<checkbox>;
     let auto: Bool;
+    let idled: Bool;
 
     public func OnCreate(controller: ref<controller>, gamemode: ref<gamemode>) -> Void {
         this.controller = controller;
@@ -78,6 +79,7 @@ public class wheel {
         this.canvasArrow = new inkImage();
 
         this.Initialize();
+        this.idled = false;
     }
 
     private func Initialize() -> Void {
@@ -281,7 +283,25 @@ private func ShuffledIndexes() -> array<Int32> {
         return this.segmentIndex;
     }
 
+    public func idleFix() -> Void {
+        if this.auto && !this.controller.page().showSite {
+            this.idled = true;
+        }else if this.auto && this.idled && this.controller.page().showSite {
+            this.idled = false;
+            this.auto = false;
+            this.controller.gamemode.Reset();
+        }
+    }
+
     private func spinWheel() -> Void {
+        //ModLog(n"DEBUG", s"\(this.controller.page().showSite)");
+
+        this.idleFix();
+
+        this.spinButton.ApplyDisabled();
+        this.spun = true;
+        this.Pay();
+        if !this.firstSpin { this.generatePrizeIndex(); }
 
         let numSegments: Int32 = 8;
         let degreesPerPrize: Float = 360.0 / 8.0; // 45° per segment
@@ -335,17 +355,15 @@ private func ShuffledIndexes() -> array<Int32> {
 
     private cb func OnSpinClicked(evt: ref<inkCustomEvent>) -> Bool {
         ////modlog(n"DEBUG", s"Spin Clicked");
-        if !this.controller.money().isBrokeboi() && !this.spun  {
+        if !this.controller.money().isBrokeboi() && !this.spun {
             ////modlog(n"DEBUG", s"Spin Clicked 2");
-            this.spinButton.ApplyDisabled();
-            this.spun = true;
-            this.Pay();
-            if !this.firstSpin { this.generatePrizeIndex(); }
             this.spinWheel();
             return true;
         } 
         return false;
     }
+
+
 
     private cb func OnSpinStarted(animProxy: ref<inkAnimProxy>) {
         //modlog(n"DEBUG", s"Prize index: \(this.prizeIndex), prize item: \(this.TextureParts[this.prizeIndex])");
@@ -371,20 +389,19 @@ private func ShuffledIndexes() -> array<Int32> {
 
     private cb func OnSpinFinished(proxy: ref<inkAnimProxy>) -> Bool {
         ////modlog(n"DEBUG", s"Spin Finished");
+        this.idleFix();
         this.freeSpin(false);
         this.firstSpin = false;
 
         this.spun = false;
-        this.spinButton.ApplyDisabled();
         this.spinButton.resetText();
+        this.spinButton.ApplyDisabled();
 
         this.controller.gamemode().colorJackpot(-1);
         this.controller.gamemode().Play(this.lastPrizeIndex);
         this.addIcons();
 
         if this.auto && !this.controller.money().isBrokeboi() {
-            this.Pay();
-            if !this.firstSpin { this.generatePrizeIndex(); }
             this.spinWheel();
         }
 

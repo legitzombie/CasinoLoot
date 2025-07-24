@@ -208,7 +208,7 @@ public class spinButton extends CustomButton {
 
 	public func ApplyDisabled() -> Void {
 		this.m_isDisabled = !this.m_isDisabled;
-		ModLog(n"DEBUG", s"Disabled: \(this.m_isDisabled)");
+		//ModLog(n"DEBUG", s"Disabled: \(this.m_isDisabled)");
 		let color: HDRColor;
 
 		if this.m_isDisabled {
@@ -223,14 +223,18 @@ public class spinButton extends CustomButton {
 		if this.controller.wheel().isFree() {
 			this.SetText("            FREE SPIN");
 			this.setBackgroundColor(colors.greenGlow());
-		}else if !this.controller.money().isBrokeboi() {
+		}else if !this.controller.money().isBrokeboi() && !this.m_isDisabled {
 			this.SetText("         SPIN ($5,000)");
 			this.setBackgroundColor(colors.yellowGlow());
-			this.m_isDisabled = false;
-		}else {
+			//this.m_isDisabled = false;
+		}else if this.controller.money().isBrokeboi() {
 			this.setBackgroundColor(colors.redGlow());
 			this.SetText("      $5,000 REQUIRED");
 			this.m_isDisabled = true;
+		}else if this.m_isDisabled {
+			this.setBackgroundColor(colors.green());
+		}else {
+			this.setBackgroundColor(colors.yellowGlow());
 		}
 	}
 
