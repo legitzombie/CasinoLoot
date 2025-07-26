@@ -49,7 +49,12 @@ local lootTables = {
         "Items.VegaCPMods_Machete_1_black_white_none_legendary_plus_plus",
         "Items.VegaCPMods_Machete_1_white_black_none_legendary_plus_plus",
         "Items.VegaCPMods_Machete_1_black_white_arcs_legendary_plus_plus",
-        "Items.VegaCPMods_Machete_1_white_black_arcs_legendary_plus_plus"
+        "Items.VegaCPMods_Machete_1_white_black_arcs_legendary_plus_plus",
+        "Items.ZMod_Wakizashi",
+        "Items.ZMod_FireAxe",
+        "Items.ZMod_IceClimbing_Axe",
+        "Items.longsword_ignis"
+
     },
 
     ["Items.CasinoLoot_SlashToken_UNCOMMON"] = {
@@ -141,7 +146,13 @@ local lootTables = {
         "Items.VegaCPMods_Katana_1_black_green_emissive_legendary_plus_plus",
         "Items.VegaCPMods_Katana_1_black_green_none_legendary_plus_plus",
         "Items.VegaCPMods_Machete_1_black_green_none_legendary_plus_plus",
-        "Items.VegaCPMods_Machete_1_black_green_arcs_legendary_plus_plus"
+        "Items.VegaCPMods_Machete_1_black_green_arcs_legendary_plus_plus",
+        "Items.mana_lightsaber_green",
+        "Items.mana_lightsaber_green_2h",
+        "Items.mana_lightsaber_green_double",
+        "Items.longsword_ignis_white",
+        "Items.longsword_ignis_green"
+
     },
 
     ["Items.CasinoLoot_SlashToken_RARE"] = {
@@ -182,7 +193,15 @@ local lootTables = {
         "Items.VegaCPMods_Machete_1_black_red_arcs_legendary_plus_plus",
         "Items.VegaCPMods_Machete_1_bluedark_gold_arcs_legendary_plus_plus",
         "Items.VegaCPMods_Machete_1_magentalight_bluelight_arcs_legendary_plus_plus",
-        "Items.VegaCPMods_Machete_1_white_gold_arcs_legendary_plus_plus"
+        "Items.VegaCPMods_Machete_1_white_gold_arcs_legendary_plus_plus",
+        "Items.mana_lightsaber_blue",
+        "Items.mana_lightsaber_red",
+        "Items.mana_lightsaber_blue_2h",
+        "Items.mana_lightsaber_red_2h",
+        "Items.mana_lightsaber_blue_double",
+        "Items.mana_lightsaber_red_double",
+        "Items.longsword_ignis_blue"
+
     },
 
     ["Items.CasinoLoot_SlashToken_EPIC"] = {
@@ -199,7 +218,20 @@ local lootTables = {
         "Items.VegaCPMods_Machete_1_black_magentadark_none_legendary_plus_plus",
         "Items.VegaCPMods_Machete_1_magentadark_black_none_legendary_plus_plus",
         "Items.VegaCPMods_Machete_1_black_magentadark_arcs_legendary_plus_plus",
-        "Items.VegaCPMods_Machete_1_magentadark_black_arcs_legendary_plus_plus"
+        "Items.VegaCPMods_Machete_1_magentadark_black_arcs_legendary_plus_plus",
+        "Items.ZMod_PsychoAxe",
+        "Items.mana_lightsaber_pink",
+        "Items.mana_lightsaber_silver",
+        "Items.mana_lightsaber_violet",
+        "Items.mana_lightsaber_pink_2h",
+        "Items.mana_lightsaber_silver_2h",
+        "Items.mana_lightsaber_violet_2h",
+        "Items.mana_lightsaber_pink_double",
+        "Items.mana_lightsaber_silver_double",
+        "Items.mana_lightsaber_violet_double",
+        "Items.longsword_ignis_violet",
+        "Items.longsword_ignis_pink"
+
     },
 
     ["Items.CasinoLoot_SlashToken_LEGENDARY"] = {
@@ -218,7 +250,31 @@ local lootTables = {
         "Items.VegaCPMods_Katana_1_yellow_black_none_legendary_plus_plus",
         "Items.VegaCPMods_Katana_1_yellow_black_arcs_legendary_plus_plus", 
         "Items.VegaCPMods_Machete_1_white_orange_none_legendary_plus_plus",
-        "Items.VegaCPMods_Machete_1_yellow_black_none_legendary_plus_plus"
+        "Items.VegaCPMods_Machete_1_yellow_black_none_legendary_plus_plus",
+        "Items.Camellia_Katana_Legendary",
+        "Items.sword_pulse",
+        "Items.sword_pulse_white",
+        "Items.sword_pulse_red",
+        "Items.sword_pulse_blue",
+        "Items.krnlnik_yamato",
+        "Items.aerondight",
+        "Items.Camellia_Wakizashi_Legendary",
+        "Items.mana_minecraft_axe",
+        "Items.mana_minecraft_sword",
+        "Items.mana_minecraft_shovel",
+        "Items.mana_minecraft_pickaxe",
+        "Items.krnlnik_rebellion",
+        "Items.krnlnik_red_queen",
+        "Items.olgierd sabre",
+        "Items.mana_lightsaber_yellow",
+        "Items.mana_lightsaber_orange",
+        "Items.mana_lightsaber_yellow_2h",
+        "Items.mana_lightsaber_orange_2h",
+        "Items.mana_lightsaber_yellow_double",
+        "Items.mana_lightsaber_orange_double",
+        "Items.longsword_ignis_orange",
+        "Items.longsword_ignis_yellow"
+
 
     },
 
@@ -226,7 +282,8 @@ local lootTables = {
         "Items.Preset_Kanabo_Default", "Items.Preset_Iron_Pipe_Default",
         "Items.Preset_Crowbar_Default", "Items.Preset_Baton_Alpha",
         "Items.Preset_Baton_Beta", "Items.Preset_Baton_Gamma",
-        "Items.Preset_Tire_Iron_Default", "Items.weapon_dildo_01_default_kwek"
+        "Items.Preset_Tire_Iron_Default", "Items.weapon_dildo_01_default_kwek",
+        "Items.Preset_Baton_Subjugator"
     },
 
     ["Items.CasinoLoot_BluntToken_UNCOMMON"] = {
@@ -355,7 +412,18 @@ local lootTables = {
         "Items.Combat_Knife_Dive_Knife",
         "Items.VegaCPMods_Punk_Knife_1_black_white_none_legendary_plus_plus",
         "Items.VegaCPMods_Punk_Knife_1_white_black_none_legendary_plus_plus",
-        "Items.VegaCPMods_Punk_Knife_1_black_white_emissive_legendary_plus_plus"
+        "Items.VegaCPMods_Punk_Knife_1_black_white_emissive_legendary_plus_plus",
+        "Items.ZMod_LongButchersKnife", 
+        "Items.ZMod_BrokenBottle", 
+        "Items.ZMod_Screwdriver", 
+        "Items.Tac_Knife_default",
+        "Items.Tac_Knife_blackout",
+        "Items.Tac_Knife_brown",
+        "Items.Tac_Knife_carbon",
+        "Items.Tac_Knife_frost",
+        "Items.m9bayonet",
+        "Items.bowietactical"
+
 
 
     },
@@ -1073,7 +1141,9 @@ local lootTables = {
         "Items.VegaCPMods_Punk_Knife_1_black_magentadark_none_legendary_plus_plus",
         "Items.VegaCPMods_Punk_Knife_1_magentadark_black_none_legendary_plus_plus",
         "Items.VegaCPMods_Punk_Knife_1_black_magentadark_emissive_legendary_plus_plus",
-        "Items.VegaCPMods_Punk_Knife_1_magentadark_black_emissive_legendary_plus_plus"
+        "Items.VegaCPMods_Punk_Knife_1_magentadark_black_emissive_legendary_plus_plus",
+        "Items.Tac_Knife_preem",
+        "Items.Tac_Knife_smoke"
     },
 
     ["Items.CasinoLoot_ThrowToken_LEGENDARY"] = {
@@ -1210,7 +1280,22 @@ local lootTables = {
         "Items.Combat_Knife_Blood_Oath",
         "Items.Combat_Knife_Foxy_Lady",
         "Items.VegaCPMods_Punk_Knife_1_white_orange_none_legendary_plus_plus",
-        "Items.VegaCPMods_Punk_Knife_1_yellow_black_none_legendary_plus_plus"
+        "Items.VegaCPMods_Punk_Knife_1_yellow_black_none_legendary_plus_plus",
+        "Items.Tac_Knife_nova",
+        "Items.Tac_Knife_iconic",
+        "Items.Camellia_Tanto_Legendary",
+        "Items.Akashio",
+        "Items.Dokuname",
+        "Items.Kurashunami",
+        "Items.Kuronami",
+        "Items.Madanami",
+        "Items.Netsunami",
+        "Items.Shironami",
+        "Items.Teinami",
+        "Items.Tsunami",
+        "Items.Yorunami",
+        "Items.Camellia_Throwable_Wakizashi_Legendary"
+
 
     },
 
@@ -1313,7 +1398,44 @@ local lootTables = {
         "Items.Beretta_M9_Suppressor",
         "Items.Canik_Rival_S_Black",
         "Items.P220_Black",
-        "Items.P220_Suppressor_Black"
+        "Items.P220_Suppressor_Black",
+        "Items.HA_9_Kurtz",
+        "Items.HA_9_Kurtz_Suppressor",
+        "Items.fs_FiveseveN_Executioner",
+        "Items.fs_FiveseveN_Default",
+        "Items.fs_FiveseveN_Military",
+        "Items.fs_FiveseveN_Pimp",
+        "Items.fs_FiveseveN_Neon",
+        "Items.Preset_Nova_Noir",
+        "Items.Camellia_Jericho_Legendary",
+        "Items.w_silencer_03_legendary",
+        "Items.p2016",
+        "Items.tf2_re45",
+        "Items.tf2_wingman",
+        "Items.spmk6",
+        "Items.glock_34",
+        "Items.1911",
+        "Items.M1911",
+        "Items.Colt_Python",
+        "Items.Auto9_Remake", 
+        "Items.Auto9_Suppressor", 
+        "Items.Auto9",
+        "Items.Sicario_1911_Chrome",
+        "Items.Sicario_1911_Chrome_Suppressor",
+        "Items.Sicario_1911_Gold_Suppressor",
+        "Items.Sicario_1911_Gold",
+        "Items.Sicario_1911_Pure_Chrome",
+        "Items.Sicario_1911_Pure_Gold",
+        "Items.Sicario_1911_Pure_Black",
+        "Items.RSh12",
+        "Items.Constitutional_Arms_Victory",
+        "Items.Constitutional_Arms_Legacy",
+        "Items.Constitutional_Arms_Suppressor",
+        "Items.Seburo_M5",
+        "Items.RE4_SG09R",
+        "Items.RE4_SG09R_Suppressor",
+        "Items.Arasaka_Masayuki"
+
 
 
 
@@ -1336,7 +1458,20 @@ local lootTables = {
         "Items.ONI_Smart_Pistol",
         "Items.P220",
         "Items.P220_Suppressor",
-        "Items.GS_9mm"
+        "Items.GS_9mm",
+        "Items.Blade_Runner_Gun",
+        "Items.Blade_Runner_Gun_Dark",
+        "Items.Hitman_Silverballer",
+        "Items.Hitman_Black_Lily",
+        "Items.Hitman_Silverballer_Suppressor",
+        "Items.Burya_Basilic",
+        "Items.Malorian_Red",
+        "Items.Wingman",
+        "Items.Hardballer_Laser",
+        "Items.Hardballer_LongSlide",
+        "Items.Hardballer",
+        "Items.Arasaka_Masayuki_Green"
+
 
     },
 
@@ -1356,7 +1491,29 @@ local lootTables = {
         "Items.M9_Phantom_Limb_Suppressor",
         "Items.USP_45_Fate_Maker",
         "Items.USP_Fate_Maker_Suppressor",
-        "Items.USP_45_Fate_Maker_Scope"
+        "Items.USP_45_Fate_Maker_Scope",
+        "Items.Militech_TiconV", 
+        "Items.Militech_Pyre", 
+        "Items.Militech_TiconV_Suppressor", 
+        "Items.Malorian_3516_Voltaic",
+        "Items.Militech_Stinger",
+        "Items.DMC_Ebony",
+        "Items.DMC_Ivory",
+        "Items.Hellsing_Casull",
+        "Items.Samurai_Edge",
+        "Items.Wingman_Gold",
+        "Items.Lawgiver_MKIII",
+        "Items.Lawgiver_MKIII_Stun",
+        "Items.Lawgiver_MKIII_Fire",
+        "Items.Lawgiver_MKIII_Flechette",
+        "Items.Lawgiver_Suppressor",
+        "Items.Militech_Laser_Pistol",
+        "Items.Samurai_Edge_AW01",
+        "Items.Samurai_Edge_AW01_Suppressor",
+        "Items.Arasaka_Masayuki_Red",
+        "Items.Arasaka_Masayuki_Blue",
+        "Items.Arasaka_Masayuki_Gold"
+
 
 
     },
@@ -1371,7 +1528,8 @@ local lootTables = {
         "Items.Preset_Chao_Neon", "Items.Preset_Lexington_Training",
         "Items.Preset_Yukimura_Neon", "Items.Preset_Kappa_Neon",
         "Items.Preset_Kenshin_Neon", "Items.SJ_Dice", "Items.Desert_Eagle_CTRLZ",
-        "Items.StaccatoP_Mach5", "Items.Preset_Omaha_Neon", "Items.combat_master"
+        "Items.StaccatoP_Mach5", "Items.combat_master",
+        "Items.Arasaka_Masayuki_Silver"
     },
 
     ["Items.CasinoLoot_PistolToken_LEGENDARY"] = {
@@ -1396,7 +1554,22 @@ local lootTables = {
         "Items.StaccatoP_Zombies_Bane", "Items.Preset_Tamayura_Honor",
         "Items.glock_18_vspec",
         "Items.glock_valentinos",
-        "Items.Gravitazer"
+        "Items.Gravitazer",
+        "Items.Sicario_1911_Black_Chrome",
+        "Items.Sicario_1911_Black_Gold",
+        "Items.Sicario_1911_Black_Chrome_Suppressor",
+        "Items.Sicario_1911_Black_Gold_Suppressor",
+        "Items.Sicario_1911_Pure_Chrome_Suppressor",
+        "Items.Sicario_1911_Pure_Gold_Suppressor",
+        "Items.Sicario_1911_Pure_Black_Suppressor",
+        "Items.92f_Cutlass",
+        "Items.Harley_Chiappa_Rhino",
+        "Items.Zenith_Zap", 
+        "Items.Zenith_Zap_Suppressor", 
+        "Items.Wingman_MoltenFissure",
+        "Items.Electric_Hellfire",
+        "Items.Electric_HellfireMk2"
+
     },
 
     ["Items.CasinoLoot_ShotgunToken_COMMON"] = {
@@ -1404,7 +1577,12 @@ local lootTables = {
         "Items.Preset_Tactician_Prevention", "Items.Preset_Testera_Default",
         "Items.Preset_Satara_Default", "Items.Preset_Palica_Default",
         "Items.Preset_Zhuo_Trauma", "Items.Preset_Zhuo_Default",
-        "Items.Preset_Igla_Default", "Items.Preset_Igla_Conditional"
+        "Items.Preset_Igla_Default", "Items.Preset_Igla_Conditional",
+        "Items.m1klos_Whisperer",
+        "Items.m1klos_Satara_XMOD2",
+        "Items.Spas12",
+        "Items.Spas12supp"
+
     },
 
     ["Items.CasinoLoot_ShotgunToken_UNCOMMON"] = {
@@ -1423,7 +1601,10 @@ local lootTables = {
         "Items.Preset_Testera_Pimp", "Items.Preset_Satara_Pimp",
         "Items.Preset_Palica_Pimp", "Items.Preset_Zhuo_Pimp",
         "Items.Preset_Igla_Pimp", "Items.SJ_PlasmaShotgun",
-        "Items.Citori_725_Haste", "Items.Preset_Satara_Trailblazer"
+        "Items.Citori_725_Haste", "Items.Preset_Satara_Trailblazer",
+        "Items.Crusher_Prototype_T",
+        "Items.Preset_SuperShotgun_Legendary",
+        "Items.Preset_SuperShotgun_Meathook_Legendary"
     },
 
     ["Items.CasinoLoot_ShotgunToken_EPIC"] = {
@@ -1452,7 +1633,10 @@ local lootTables = {
         "Items.Preset_Ashura_Prevention_MaxTac_2nd_wave",
         "Items.Preset_Nekomata_Prevention", "Items.Preset_Osprey_Pimp",
         "Items.Preset_Osprey_Legendary", "Items.Preset_Osprey_Default",
-        "Items.Preset_Ashura_Default", "Items.Militech_AMR"
+        "Items.Preset_Ashura_Default", "Items.Militech_AMR",
+        "Items.Preset_Antitank_Iconic",
+        "Items.Preset_Odysseus_Default"
+
     },
 
     ["Items.CasinoLoot_SniperToken_UNCOMMON"] = {
@@ -1469,7 +1653,8 @@ local lootTables = {
         "Items.Preset_Ashura_Pimp", "Items.SJ_NetRam",
         "Items.Longbow_DMR", 
         "Items.Longbow_DMR_Scope", 
-        "Items.Longbow_DMR_Suppressor"
+        "Items.Longbow_DMR_Suppressor",
+        "Items.Vector_77"
 
     },
 
@@ -1482,7 +1667,7 @@ local lootTables = {
         "Items.Preset_Nekomata_Amazon", "Items.Preset_Nekomata_Breakthrough",
         "Items.Preset_Grad_Buck", "Items.Preset_Grad_Panam",
         "Items.Preset_Grad_Scav", "Items.Preset_Osprey_Prototype",
-        "Items.Preset_Ashura_Twitch"
+        "Items.Preset_Ashura_Twitch", "Items.Holy_Terror"
     },
 
     ["Items.CasinoLoot_RifleToken_COMMON"] = {
@@ -1528,7 +1713,46 @@ local lootTables = {
         "Items.Nokota_Taipan",
         "Items.Nokota_Stingray",
         "Items.Nokota_Stingray_Reflex_Sight",
-        "Items.Nokota_Stingray_Suppressor"
+        "Items.Nokota_Stingray_Suppressor",
+        "Items.CZ_Evo3",
+        "Items.Preset_Ashura_dumb",
+        "Items.nv4_ar", 
+        "Items.NV4_HoneyB", 
+        "Items.NV4_VMC_Sight", 
+        "Items.NV4_Holo", 
+        "Items.NV4_Cas_4x", 
+        "Items.NV4_IronSights", 
+        "Items.NV4_Suppressor", 
+        "Items.AR15_SLR",
+        "Items.AR15_Suppressor",
+        "Items.AR15_Ironsights",
+        "Items.AR15_SLR_Black",
+        "Items.VHS_D2",
+        "Items.VHS_D2_Tactical",
+        "Items.VHS_Iron_Sight",
+        "Items.VHS_Suppressor",
+        "Items.VHS_Hybrid_Sight",
+        "Items.VHS_Trijicon_ACOG",
+        "Items.VHS_Holo_Sight",
+        "Items.VHS_Reflex_Sight",
+        "Items.tf2_flatline", 
+        "Items.tf2_flatline_sight",
+        "Items.r101",
+        "Items.r201",
+        "Items.hemlok_br",
+        "Items.Militech_MG249", 
+        "Items.Militech_HMG34", 
+        "Items.Hercules_LMG", 
+        "Items.AK_12",
+        "Items.AK_47",
+        "Items.Saiga_12",
+        "Items.Flatline",
+        "Items.Preset_Saratoga_Default",
+        "Items.Militech_Ajax_MK2",
+        "Items.Militech_Ajax_MK2_Smart",
+        "Items.Militech_Ajax_MK2_Suppressor",
+        "Items.m16_tm"
+
 
     },
 
@@ -1554,7 +1778,37 @@ local lootTables = {
         "Items.R301_Carbine", 
         "Items.R301_HCOG",
         "Items.R301_Holo",
-        "Items.R301_Suppressor"
+        "Items.R301_Suppressor",
+        "Items.Rampage_Reflex_Sight",
+        "Items.Rampage", 
+        "Items.Rampage_Folded_Stock", 
+        "Items.Rampart_17", 
+        "Items.HVR",
+        "Items.HVR_Gemini",
+        "Items.VPR",
+        "Items.ICR7_AR", 
+        "Items.Rampart_17_IronSight", 
+        "Items.Rampart17_Holo_Sight", 
+        "Items.Rampart17_Suppressor",
+        "Items.HVR_Gemini_Suppressor",
+        "Items.VPR_Suppressor",
+        "Items.VPR_Reflex_Sight", 
+        "Items.ICR7_Holo_Sight",
+        "Items.ICR7_Reflex_Sight", 
+        "Items.ICR7_Suppressor", 
+        "Items.AK_77",
+        "Items.Militech_Beam_Rifle",
+        "Items.Militech_Beam_Rifle_Smart",
+        "Items.Volk",
+        "Items.Volk_Goliath",
+        "Items.OTs14_Groza",
+        "Items.XM8",
+        "Items.Blackwall_Dian_G58",
+        "Items.VegaCPMods_G-58_Dian_1_black_green_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_green_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_white_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_white_none_legendary_plus_plus"
+
 
 
     },
@@ -1578,7 +1832,27 @@ local lootTables = {
         "Items.M4_Skull_Breaker",
         "Items.M4A1_Zip_Tie",
         "Items.Rasetsu_XMOD2",
-        "Items.Rasetsu_Silenced"
+        "Items.Rasetsu_Silenced",
+        "Items.NDI_Osprey_Rocket",
+        "Items.Preset_Sidewinder_Taser",
+        "Items.AK_117",
+        "Items.HVR_IronSight",
+        "Items.HVR_ELO_Sight",
+        "Items.HVR_Suppressor",
+        "Items.HVR_Folded",
+        "Items.Elysium_AKM",
+        "Items.VegaCPMods_G-58_Dian_1_black_blue_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_blue_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_cyan_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_cyan_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_red_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_red_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_gold_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_bluedark_gold_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_white_gold_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_bluedark_gold_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_gold_none_legendary_plus_plus"
+
 
 
     },
@@ -1594,7 +1868,14 @@ local lootTables = {
         "Items.Preset_Kyubi_Krausser", "Items.Preset_Achilles_Neon",
         "Items.Preset_Masamune_Neon", "Items.SJ_Firestorm",
         "Items.Vepr_12_Oroku", "Items.AK_117", "Items.AK_117_Suppressor",
-        "Items.M4A1_Florin"
+        "Items.M4A1_Florin",
+        "Items.VegaCPMods_G-58_Dian_1_magentadark_black_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_magentadark_emissive_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_magentadark_black_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_magentalight_bluelight_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_black_magentadark_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_magentalight_bluelight_emissive_legendary_plus_plus"
+
 
     },
 
@@ -1627,7 +1908,16 @@ local lootTables = {
         "Items.M16_Laughing_Matter",
         "Items.M16_Flor_De_Tumba",
         "Items.XM4_Vex_Lord",
-        "Items.XM4_White_Rabbit"
+        "Items.XM4_White_Rabbit",
+        "Items.Rampage_Caution",
+        "Items.Rampage_Caution_Folded_Stock",
+        "Items.Groza_Grizzy_Blossom",
+        "Items.Warden_Toasty_Holo",
+        "Items.Warden_Toasty_Orange",
+        "Items.VegaCPMods_G-58_Dian_1_yellow_black_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_yellow_blue_none_legendary_plus_plus",
+        "Items.VegaCPMods_G-58_Dian_1_white_orange_none_legendary_plus_plus"
+
 
     },
 
@@ -1641,7 +1931,29 @@ local lootTables = {
         "Items.Militech_M77_Viper_Stockless",
         "Items.Kriss_Vector",
         "Items.Mag7",
-        "Items.Mag7_Suppressor"
+        "Items.Mag7_Suppressor",
+        "Items.tf2_car",
+        "Items.r97",
+        "Items.tf2_volt",
+        "Items.Camellia_UMP_Legendary",
+        "Items.Mac10",
+        "Items.Mac10_Suppressor",
+        "Items.Mac10_Gang",
+        "Items.Mac10_Uzi_Red_Dot",
+        "Items.Uzi_Mac10_Holo_Sight",
+        "Items.MP5K",
+        "Items.Uzi",
+        "Items.Mini_Uzi",
+        "Items.Micro_Uzi",
+        "Items.Warden_Toasty",
+        "Items.PS90",
+        "Items.PS90_Holo_Sight",
+        "Items.PS90_Reflex_Sight",
+        "Items.PS90_Iron_Sight",
+        "Items.PS90_Precision_Scope",
+        "Items.PS90_Suppressor",
+        "Items.SIG_MPX"
+
 
 
     },
@@ -1653,7 +1965,10 @@ local lootTables = {
         "Items.Preset_Warden_Military", "Items.Preset_Guillotine_Military",
         "Items.AKS_74U_Suppressor", "Items.AKS_74U",
         "Items.MasterpieceArms_MPA30SST",
-        "Items.MasterpieceArms_MPA30SST_Suppressor"
+        "Items.MasterpieceArms_MPA30SST_Suppressor",
+        "Items.Warden_Toasty_Military",
+        "Items.Warden_Toasty_Krausser"
+
 
 
     },
@@ -1665,7 +1980,11 @@ local lootTables = {
         "Items.Preset_Dian_Trauma", "Items.Preset_Senkoh_Military",
         "Items.Preset_Shingen_Pimp", "Items.Preset_Warden_Pimp",
         "Items.Preset_Senkoh_Pimp", "Items.Preset_Guillotine_Pimp",
-        "Items.SJ_Tzijimura", "Items.MP5_Razorwire"
+        "Items.SJ_Tzijimura", "Items.MP5_Razorwire",
+        "Items.Midnight_Arms_Erebus_Smart",
+        "Items.Warden_Toasty_Pimp",
+        "Items.Warden_Toasty_Red"
+
     },
 
     ["Items.CasinoLoot_SMGToken_EPIC"] = {
@@ -1673,7 +1992,8 @@ local lootTables = {
         "Items.Preset_Dian_Neon", "Items.Preset_Shingen_Neon",
         "Items.Preset_Warden_Neon", "Items.Preset_Senkoh_Neon",
         "Items.Preset_Guillotine_Neon", "Items.Preset_Saratoga_Krausser",
-        "Items.Preset_Senkoh_Prototype", "Items.Preset_Warden_Krausser"
+        "Items.Preset_Senkoh_Prototype", "Items.Preset_Warden_Krausser",
+        "Items.Warden_Toasty_Neon"
     },
 
     ["Items.CasinoLoot_SMGToken_LEGENDARY"] = {
@@ -1681,7 +2001,10 @@ local lootTables = {
         "Items.Preset_Shingen_Prototype", "Items.Preset_Warden_Boris",
         "Items.Preset_Guillotine_Collectible", "Items.MP5_Buzzkiller",
         "Items.MP5SD_Spawnfire", "Items.Preset_Warden_Infernal",
-        "Items.Preset_Guillotine_Sloppy"
+        "Items.Preset_Guillotine_Sloppy",
+        "Items.Warden_Toasty_Holo",
+        "Items.Warden_Toasty_Orange"
+
     }
 
 }
